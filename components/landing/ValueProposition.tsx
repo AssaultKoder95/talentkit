@@ -1,34 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Target, LineChart, Clock } from "lucide-react";
+import { Sparkles, Target, Clock, Star } from "lucide-react";
 
 const benefits = [
     {
-        title: "AI Screening",
-        description: "Automatically screen and rank candidates based on skills, experience, and cultural fit.",
-        icon: Zap,
+        title: "AI Job Matching",
+        description: "Our AI analyzes your profile and matches you with roles that fit your skills and goals.",
+        icon: Sparkles,
         color: "text-amber-500",
         bgColor: "bg-amber-100",
     },
     {
-        title: "Smart Matching",
-        description: "Our AI matches the right talent to your requirements with precision and speed.",
+        title: "Smart Recommendations",
+        description: "Get personalized job recommendations based on your experience, preferences, and career goals.",
         icon: Target,
         color: "text-blue-500",
         bgColor: "bg-blue-100",
     },
     {
-        title: "Faster Hiring",
-        description: "Reduce time-to-hire by 60% with intelligent automation and streamlined workflows.",
-        icon: LineChart,
+        title: "Faster Applications",
+        description: "Apply to matched roles with one click. No more filling out the same forms repeatedly.",
+        icon: Clock,
         color: "text-emerald-500",
         bgColor: "bg-emerald-100",
     },
     {
-        title: "Quality Talent",
-        description: "Pre-vetted, qualified candidates delivered straight to your hiring pipeline.",
-        icon: Clock,
+        title: "Career Insights",
+        description: "See how you rank, get interview prep tips, and track your application progress in real-time.",
+        icon: Star,
         color: "text-purple-500",
         bgColor: "bg-purple-100",
     },
@@ -54,7 +54,7 @@ export default function ValueProposition() {
                         transition={{ delay: 0.1 }}
                         className="text-lg text-slate-600 max-w-2xl mx-auto"
                     >
-                        Transform your hiring process from a bottleneck into an AI-powered talent engine.
+                        Transform your job search from endless applications into AI-powered career matches.
                     </motion.p>
                 </div>
 

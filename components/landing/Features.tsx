@@ -1,17 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brain, UserCheck, Workflow, LayoutDashboard, Users2, MessageSquareDashed, Clock4, Sparkles } from "lucide-react";
+import { Sparkles, Target, Clock, Star, FileText, MessageSquare, Briefcase, TrendingUp } from "lucide-react";
 
 const features = [
-    { text: "AI-powered candidate screening", icon: Brain },
-    { text: "Skill-based matching algorithms", icon: UserCheck },
-    { text: "Automated interview scheduling", icon: Workflow },
-    { text: "Candidate analytics dashboard", icon: LayoutDashboard },
-    { text: "Team collaboration tools", icon: Users2 },
-    { text: "Custom hiring workflows", icon: MessageSquareDashed },
-    { text: "24/7 candidate sourcing", icon: Clock4 },
-    { text: "Diversity hiring insights", icon: Sparkles }
+    { text: "AI-powered job matching", icon: Sparkles },
+    { text: "Personalized role recommendations", icon: Target },
+    { text: "One-click applications", icon: Clock },
+    { text: "Application tracking dashboard", icon: FileText },
+    { text: "Interview prep & tips", icon: MessageSquare },
+    { text: "Salary insights & benchmarks", icon: Briefcase },
+    { text: "Career progress tracking", icon: TrendingUp },
+    { text: "Profile optimization", icon: Star }
 ];
 
 export default function Features() {
@@ -29,8 +29,8 @@ export default function Features() {
                             viewport={{ once: true }}
                             className="text-3xl md:text-5xl font-bold mb-6 leading-tight"
                         >
-                            AI-Powered Hiring, <br />
-                            <span className="text-indigo-400">Simple Setup</span>
+                            AI-Powered Job Search, <br />
+                            <span className="text-indigo-400">Personalized Matches</span>
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export default function Features() {
                             transition={{ delay: 0.1 }}
                             className="text-lg text-slate-300 mb-10 max-w-xl"
                         >
-                            Take control of your hiring pipeline without the manual overhead. Our AI handles screening, matching, and scheduling so you can focus on closing top talent.
+                            Take control of your job search without the endless applications. Our AI matches you with roles that fit — so you can focus on landing the right offer.
                         </motion.p>
 
                         <div className="grid sm:grid-cols-2 gap-y-4 gap-x-6">
@@ -95,7 +95,7 @@ export default function Features() {
                                             <div className="w-1/2 h-4 rounded bg-slate-700/50" />
 
                                             <div className="mt-auto self-end px-4 py-2 bg-indigo-600 rounded-md text-white font-medium text-sm">
-                                                Find Candidates
+                                                Apply Now
                                             </div>
                                         </div>
                                     </div>

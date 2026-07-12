@@ -14,7 +14,7 @@ export default function Footer() {
                             <span className="text-xl font-bold text-white">TalentKit</span>
                         </div>
                         <p className="max-w-xs text-sm">
-                            AI-native hiring intelligence. Find, screen, and hire top talent with the power of AI.
+                            AI-native career platform. Get matched with roles that fit — land your dream job faster.
                         </p>
                     </div>
 

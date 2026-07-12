@@ -3,17 +3,19 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, CheckCircle2, ChevronDown, Lock } from "lucide-react";
+import { useMutation } from "convex/react";
+import { api } from "@/convex/_generated/api";
 
 export default function WaitlistForm() {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [showTerms, setShowTerms] = useState(false);
+    const addEntry = useMutation(api.waitlist.addEntry);
 
-    // Form State
     const [form, setForm] = useState({
         name: "",
         email: "",
-        handle: ""
+        phone: ""
     });
 
     const [errors, setErrors] = useState<Partial<typeof form>>({});
@@ -22,8 +24,7 @@ export default function WaitlistForm() {
         const newErrors: Partial<typeof form> = {};
         if (!form.name.trim()) newErrors.name = "Name is required";
         if (!form.email.trim() || !/^\S+@\S+\.\S+$/.test(form.email)) newErrors.email = "Valid email is required";
-        if (!form.handle.trim()) newErrors.handle = "Company name is required";
-
+        if (!form.phone.trim()) newErrors.phone = "Mobile number is required";
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -33,18 +34,11 @@ export default function WaitlistForm() {
         if (validate()) {
             setLoading(true);
             try {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4545'}/waitlist`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(form)
+                await addEntry({
+                    name: form.name.trim(),
+                    email: form.email.trim(),
+                    phone: form.phone.trim(),
                 });
-
-                const result = await response.json();
-
-                if (!response.ok) {
-                    throw new Error(result.message || "Failed to join waitlist");
-                }
-
                 setSuccess(true);
             } catch (error: any) {
                 console.error("Waitlist Error:", error);
@@ -57,12 +51,9 @@ export default function WaitlistForm() {
 
     return (
         <section id="waitlist" className="py-24 bg-slate-50 relative overflow-hidden">
-            {/* Minimalist Grid Background */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="bg-white rounded-[2rem] shadow-2xl shadow-slate-200/50 border border-slate-100 p-8 md:p-12">
-
                     {!success ? (
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
                             <div className="text-center mb-10">
@@ -72,7 +63,7 @@ export default function WaitlistForm() {
                                 </span>
                                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Get Early Access</h2>
                                 <p className="text-slate-500">
-                                    By joining, you'll be among the first to access TalentKit and get exclusive early adopter benefits including discounted plans.
+                                    By joining, you'll be among the first candidates to access TalentKit and get priority matching with top companies.
                                 </p>
                             </div>
 
@@ -103,19 +94,21 @@ export default function WaitlistForm() {
                                     {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
                                 </div>
 
-                                <div>
-                                    <label htmlFor="handle" className="block text-sm font-medium text-slate-700 mb-1.5">Company Name</label>
+<div>
+                                    <label htmlFor="phone" className="block text-sm font-medium text-slate-700 mb-1.5">Mobile Number</label>
                                     <div className="relative">
+                                        <span className="absolute left-4 top-3 text-slate-400 font-medium">+91</span>
                                         <input
-                                            type="text"
-                                            id="handle"
-                                            value={form.handle}
-                                            onChange={(e) => setForm({ ...form, handle: e.target.value })}
-                                            placeholder="Your company name"
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                                            type="tel"
+                                            id="phone"
+                                            value={form.phone}
+                                            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                                            placeholder="98765 43210"
+                                            className="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                                            maxLength={10}
                                         />
                                     </div>
-                                    {errors.handle && <p className="mt-1 text-sm text-red-500">{errors.handle}</p>}
+                                    {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone}</p>}
                                 </div>
 
                                 <button
@@ -139,7 +132,6 @@ export default function WaitlistForm() {
                                 </div>
                             </form>
 
-                            {/* Terms & Conditions Box */}
                             <div className="mt-8 border-t border-slate-100 pt-6">
                                 <button
                                     onClick={() => setShowTerms(!showTerms)}
@@ -160,11 +152,11 @@ export default function WaitlistForm() {
                                             <div className="pt-4 pb-2 text-xs text-slate-500 space-y-2">
                                                 <p>*Conditions Apply for Early Adopter Access:</p>
                                                 <ul className="list-disc pl-4 space-y-1">
-                                                    <li>Offer valid only for the first 500 companies registered</li>
-                                                    <li>Companies must sign up during the waitlist period</li>
-                                                    <li>Requires active company verification once we launch</li>
-                                                    <li>Early access includes core hiring features for the first year</li>
-                                                    <li>Advanced features and higher usage limits available with premium plans (with special discounts for early adopters)</li>
+                                                    <li>Offer valid only for the first 500 candidates registered</li>
+                                                    <li>Candidates must sign up during the waitlist period</li>
+                                                    <li>Requires active profile verification once we launch</li>
+                                                    <li>Early access includes priority job matching for the first year</li>
+                                                    <li>Premium features available with special discounts for early adopters</li>
                                                     <li>Offer cannot be transferred or exchanged for cash value</li>
                                                     <li>TalentKit reserves the right to modify terms with suitable notice</li>
                                                 </ul>
@@ -190,7 +182,6 @@ export default function WaitlistForm() {
                             </p>
                         </motion.div>
                     )}
-
                 </div>
             </div>
         </section>

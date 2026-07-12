@@ -25,7 +25,7 @@ export default function Hero() {
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-amber-100 to-orange-100 border border-orange-200 text-orange-800 font-medium text-sm mb-8 shadow-sm"
                     >
                         <Zap className="w-4 h-4 text-orange-500" />
-                        Early adopters get 50% off annual plans*
+                        Free for candidates — get matched with top companies*
                     </motion.div>
 
                     <motion.h1
@@ -34,9 +34,9 @@ export default function Hero() {
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-4xl md:text-6xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-8"
                     >
-                        AI-Native Hiring Agency. <br className="hidden md:block" />
+                        AI-Native Career Platform. <br className="hidden md:block" />
                         <span className="text-indigo-600">
-                            Hire Smarter, Faster.
+                            Find Your Dream Job.
                         </span>
                     </motion.h1>
 
@@ -46,7 +46,7 @@ export default function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed"
                     >
-                        Stop sifting through hundreds of resumes. Our AI finds, screens, and matches top candidates so you can build your dream team in days, not weeks.
+                        Stop applying to hundreds of jobs. Our AI matches you with roles that fit your skills and goals — so you can land interviews faster.
                     </motion.p>
 
                     <motion.div
@@ -74,11 +74,11 @@ export default function Hero() {
                     >
                         <div className="flex items-center gap-1.5">
                             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                            <span>No credit card required</span>
+                            <span>Free for candidates</span>
                         </div>
                         <div className="flex items-center gap-1.5">
                             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                            <span>AI-powered candidate matching</span>
+                            <span>AI-powered job matching</span>
                         </div>
                     </motion.div>
                 </div>
@@ -104,24 +104,24 @@ export default function Hero() {
 
                             {/* Chat Simulation area */}
                             <div className="flex-1 p-6 md:p-10 flex flex-col gap-6 relative">
-                                {/* Incoming */}
+                                {/* Incoming - Candidate */}
                                 <div className="flex items-start gap-4 max-w-sm">
                                     <div className="w-10 h-10 rounded-full bg-slate-200 flex-shrink-0" />
                                     <div className="bg-white p-4 rounded-2xl rounded-tl-none border border-slate-200 shadow-sm">
-                                        <p className="text-slate-600 text-sm">Hi, I'm interested in the Senior Engineer role!</p>
+                                        <p className="text-slate-600 text-sm">I'm a Senior React Engineer looking for remote roles</p>
                                     </div>
                                 </div>
 
-                                {/* Outgoing - Automated */}
+                                {/* Outgoing - AI Match */}
                                 <div className="flex items-start gap-4 max-w-sm self-end flex-row-reverse">
                                     <div className="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center flex-shrink-0 shadow-sm text-white">
                                         <Sparkles className="w-5 h-5" />
                                     </div>
                                     <div className="bg-indigo-600 p-4 rounded-2xl rounded-tr-none shadow-sm relative">
                                         <div className="absolute -top-3 -right-2 bg-indigo-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm flex items-center gap-1 border border-indigo-400">
-                                            <Zap className="w-3 h-3" /> Auto
+                                            <Zap className="w-3 h-3" /> AI Match
                                         </div>
-                                        <p className="text-white text-sm">Thanks for your interest! Your skills match perfectly. Let's schedule a quick call to discuss next steps.</p>
+                                        <p className="text-white text-sm">Perfect match found! A Principal Engineer role at a Series B startup. Want me to schedule an intro call?</p>
                                     </div>
                                 </div>
 
@@ -132,7 +132,7 @@ export default function Hero() {
                                     className="absolute top-1/2 left-1/4 -translate-y-1/2 bg-white px-4 py-3 rounded-xl shadow-lg border border-slate-100 flex items-center gap-3"
                                 >
                                     <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                                    <span className="text-sm font-semibold text-slate-700">Top Match — 94%</span>
+                                    <span className="text-sm font-semibold text-slate-700">98% Match</span>
                                 </motion.div>
                             </div>
                         </div>

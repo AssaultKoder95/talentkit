@@ -34,7 +34,7 @@ export default function SocialProof() {
                         transition={{ delay: 0.1 }}
                         className="text-2xl md:text-3xl font-bold text-slate-800"
                     >
-                        Join 50+ companies <br className="hidden sm:block" /> already on the waitlist
+                        Join 50+ candidates <br className="hidden sm:block" /> already on the waitlist
                     </motion.h3>
                 </div>
             </div>
